@@ -1,5 +1,10 @@
 
-function HangmanWord(props: { word: string, guessedLetters: string[] }) {
+type HangmanWordProps = {
+    word: string;
+    guessedLetters: string[];
+};
+
+function HangmanWord(props: HangmanWordProps) {
     const { word, guessedLetters } = props;
     return (
         <div style={{ display: "flex", gap: ".25em", fontSize: "6rem",
