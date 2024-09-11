@@ -12,12 +12,17 @@
 }
 
 .btn.active {
-    background: hsl(200, 100%, 50%);
+    opacity: .3;
+    background: hsl(138, 98%, 48%);
     color: white;
+    cursor: default;
 }
 
 .btn.inactive {
     opacity: .3;
+    background-color: crimson;
+    color: white;
+    cursor: default;
 }
 
 .btn:hover:not(:disabled),

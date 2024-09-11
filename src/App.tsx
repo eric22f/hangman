@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import words from './wordList.json'
 import HangmanDrawing from './HangmanDrawing'
 import HangmanWord from './HangmanWord'
@@ -17,14 +17,20 @@ function App () {
   })
   console.log(wordToGuess)
   const [guessedLetters, setGuessedLetters] = useState<string[]>([])
-  const wrongGuesses = guessedLetters.filter(letter => !wordToGuess.includes(letter)).length
+  const wrongGuesses = guessedLetters.filter(letter => !wordToGuess.includes(letter))
+
+  const addGuessedLetter = useCallback((letter: string) => {
+    if (!guessedLetters.includes(letter)) {
+      setGuessedLetters([...guessedLetters, letter])
+    }
+  }, [guessedLetters])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const letter = event.key.toLowerCase()
       if (letter.match(/[a-z]/) && !guessedLetters.includes(letter)) {
         event.preventDefault();
-        setGuessedLetters([...guessedLetters, letter])
+        addGuessedLetter(letter);
       }
     }
     window.addEventListener('keydown', handleKeyDown)
@@ -42,9 +48,11 @@ function App () {
       maxWidth: '800px',
     }}>
       <div style={{ fontSize: '2rem', textAlign: 'center'}}>Lose Win</div>
-      <HangmanDrawing wrongGuesses={wrongGuesses} />
+      <HangmanDrawing wrongGuesses={wrongGuesses.length} />
       <HangmanWord word={wordToGuess} guessedLetters={guessedLetters} />
-      <Keyboard  />
+      <Keyboard correctLetters={guessedLetters.filter(letter =>
+        wordToGuess.includes(letter)
+      )} incorrectLetters={wrongGuesses} onLetterClick={addGuessedLetter} />
     </div>
   )
 }
