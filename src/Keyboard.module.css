@@ -30,3 +30,8 @@
     background: hsl(200, 100%, 75%);
     color: white;
 }
+
+.btn:disabled {
+    opacity: .3;
+    cursor: default;
+}

@@ -2,11 +2,12 @@ import styles from './Keyboard.module.css';
 
 type KeyboardProps = {
   correctLetters: string[];
+  disabled?: boolean;
   incorrectLetters: string[];
   onLetterClick: (letter: string) => void;
 };
 
-function Keyboard({ correctLetters, incorrectLetters, onLetterClick}: KeyboardProps) {
+function Keyboard({ correctLetters, disabled = false, incorrectLetters, onLetterClick}: KeyboardProps) {
   const KEYS = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
   return (
@@ -20,7 +21,7 @@ function Keyboard({ correctLetters, incorrectLetters, onLetterClick}: KeyboardPr
           return (
           <button className={`${styles.btn} ${isActive ? styles.active : ""} ${isInactive ? styles.inactive : ""}`} 
             key={letter}
-            disabled={isActive || isInactive}
+            disabled={isActive || isInactive || disabled}
             onClick={() => onLetterClick(letter)}>{letter}</button>
           )
         })}
