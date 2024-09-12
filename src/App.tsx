@@ -53,7 +53,7 @@ function App () {
     }}>
       <Title isLoser={isLoser} isWinner={isWinner} remainingGuesses={MAXGUESSES - wrongGuesses.length} />
       <HangmanDrawing wrongGuesses={wrongGuesses.length} />
-      <HangmanWord word={wordToGuess} guessedLetters={guessedLetters} completeWord={isLoser} />
+      <HangmanWord word={wordToGuess} guessedLetters={guessedLetters} completeWord={isLoser} isWinner={isWinner} />
       <Keyboard correctLetters={guessedLetters.filter(letter =>
         wordToGuess.includes(letter)
         )} incorrectLetters={wrongGuesses} onLetterClick={addGuessedLetter} 
