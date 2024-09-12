@@ -3,6 +3,7 @@ import words from './wordList.json'
 import HangmanDrawing from './HangmanDrawing'
 import HangmanWord from './HangmanWord'
 import Keyboard from './Keyboard'
+import Title from './Title'
 
 function App () {
 
@@ -16,9 +17,10 @@ function App () {
     return word;  
   })
   console.log(wordToGuess)
+  const MAXGUESSES = 7
   const [guessedLetters, setGuessedLetters] = useState<string[]>([])
   const wrongGuesses = guessedLetters.filter(letter => !wordToGuess.includes(letter))
-  const isLoser = wrongGuesses.length >= 7
+  const isLoser = wrongGuesses.length >= MAXGUESSES
   const isWinner = wordToGuess.split('').every(letter => guessedLetters.includes(letter))
 
   const addGuessedLetter = useCallback((letter: string) => {
@@ -49,10 +51,7 @@ function App () {
       justifyContent: 'center',
       maxWidth: '800px',
     }}>
-      <div style={{ fontSize: '2rem', textAlign: 'center', height: '30px'}}>
-        { isLoser && "Hangman!  Game Over - Refresh to try again" }
-        { isWinner && "Winner!  You guessed it - Refresh to try again" }
-      </div>
+      <Title isLoser={isLoser} isWinner={isWinner} remainingGuesses={MAXGUESSES - wrongGuesses.length} />
       <HangmanDrawing wrongGuesses={wrongGuesses.length} />
       <HangmanWord word={wordToGuess} guessedLetters={guessedLetters} completeWord={isLoser} />
       <Keyboard correctLetters={guessedLetters.filter(letter =>
