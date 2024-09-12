@@ -1,50 +1,43 @@
-# React + TypeScript + Vite
+# Hangman Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Hangman game built using **React**, **TypeScript**, and **Vite**. The goal of the game is to guess the hidden word by suggesting letters, with up to seven incorrect guesses allowed before you lose the game.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React + TypeScript**: Provides a strong typing system and modern UI development framework.
+- **Vite**: Ultra-fast build tool optimized for modern web development.
+- **Gameplay**: You can make up to **seven incorrect guesses** before losing.
+  
+## Gameplay Instructions
 
-## Expanding the ESLint configuration
+1. The game will start once the page loads.
+2. Guess letters by clicking on them or typing on your keyboard.
+3. You can miss up to seven times before the game is over.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Play the Game
 
-- Configure the top-level `parserOptions` property like this:
+Try the game at the following link:  
+[Play Hangman](https://wonderful-river-061ed9110.5.azurestaticapps.net)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Technologies Used
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **React**: Frontend UI framework.
+- **TypeScript**: Type-safe programming language.
+- **Vite**: Build tool for modern web projects.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Getting Started
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Prerequisites
+
+- Node.js and npm installed on your machine.
+
+### Local Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/eric22f/hangman.git
+2. Navigate to the project directory
+3. Run the following scripts in your terminal window
+```bash
+   npm install
+   npm run dev
