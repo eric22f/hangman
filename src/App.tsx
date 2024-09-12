@@ -7,7 +7,7 @@ import Title from './Title'
 
 function App () {
 
-  const [wordToGuess, setWordToGuess] = useState<string>(() => {
+  const [wordToGuess] = useState<string>(() => {
     // Pick a random word from the list with a minimum length of 5 characters
     const minWordLength = 5;
     let word = '';
