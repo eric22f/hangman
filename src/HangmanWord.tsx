@@ -21,9 +21,10 @@ function HangmanWord(props: HangmanWordProps) {
         }}>
             {word.split("").map((letter, index) => (
                 <span key={index} 
-                style={{ borderBottom: `.1em solid ${letterColor(letter)}`}}>
+                style={{ borderBottom: `.1em solid ${letterColor(letter)}`, msTransitionProperty: "color", msTransitionDuration: "4s",
+                    transitionProperty: "border-bottom", transitionDuration: "2s"}}>
                     <span style={{ visibility: props.completeWord || guessedLetters.includes(letter) ? "visible" : "hidden",
-                        color: letterColor(letter)}}>
+                        color: letterColor(letter), transitionProperty: "color", transitionDuration: "2s"}}>
                         {letter}
                     </span>
                 </span>
