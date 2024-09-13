@@ -6,7 +6,8 @@ type HangmanDrawingProps = {
 function HangmanDrawing({ wrongGuesses }: HangmanDrawingProps) {
   return (
     <div>
-      <img src={`images/hangman${wrongGuesses}.jpg`} alt={`Hangman drawing with ${wrongGuesses} wrong guesses`} />
+      <img src={`images/hangman${wrongGuesses}.jpg`} alt={`Hangman drawing with ${wrongGuesses} wrong guesses`} 
+        width={"100%"} height={"auto"}/>
     </div>
   );
 }

@@ -9,7 +9,7 @@ type TitleProps = {
 function Title ( props: TitleProps) {
 
     return (
-        <div style={{ fontSize: '2rem', textAlign: 'center', height: '30px'}}>
+        <div style={{ fontSize: '2rem', textAlign: 'center', minHeight: '30px'}}>
         { props.isLoser && (
           <>
             Hangman! Game Over - <Refresh /> to try again
